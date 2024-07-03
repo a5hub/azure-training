@@ -13,15 +13,10 @@ namespace FunctionApp
             _logger = loggerFactory.CreateLogger<Function1>();
         }
 
-        [Function("func-logger-202468")]
+        [Function("func1")]
         public void Run([TimerTrigger("*/10 * * * * *")] TimerInfo myTimer)
         {
             _logger.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
-            
-            if (myTimer.ScheduleStatus is not null)
-            {
-                _logger.LogInformation($"Next timer schedule at: {myTimer.ScheduleStatus.Next}");
-            }
         }
     }
 }
